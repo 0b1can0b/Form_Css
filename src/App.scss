@@ -11,47 +11,15 @@ body {
 .app {
   padding: 1rem;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
-}
 
-.app {
-  min-height: 100vh;
-  padding: 0;
-  display: grid;
-  place-content: center;
-}
+  flex-wrap: wrap;
 
-.app {
-  background-color: #fff;
-}
-
-.custom_logo_icon {
-  height: 25px;
-  width: 45px;
-  display: flex;
-  gap: 2.5px;
-  cursor: pointer;
-}
-
-.custom_logo_icon > * {
-  height: 100%;
-  width: 6px;
-  border-radius: 1.2px;
-  background-color: #000;
-}
-
-.custom_logo_icon > *:last-child {
-  transform-origin: top right;
-  rotate: -0.125turn;
-  height: calc(25px * 1.141);
-
-  transition: 0.1s ease-out;
-  transition: 0s;
-}
-
-.custom_logo_icon:hover > *:last-child {
-  rotate: 0turn;
-  height: 25px;
+  > * {
+    $size: 7.5rem;
+    width: $size;
+    height: $size;
+  }
 }
