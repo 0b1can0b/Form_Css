@@ -1,29 +1,39 @@
 import { useState, useEffect } from "react";
 import "./App.scss";
 
-import * as IconModule from "react-icons/sl";
+import "sanitize.css";
+import "sanitize.css/forms.css";
+import "sanitize.css/typography.css";
 
 console.clear();
 
-console.log(IconModule);
-
-const iconsList = Object.keys(IconModule)
-  .map((e) => {
-    return { icon: e, rand: Math.random() };
-  })
-  .sort((a, b) => a.rand - b.rand)
-  .map((e) => e.icon)
-  .splice(0, 10);
-
-console.log(iconsList);
-
 const App = () => {
+  const [open, setOpen] = useState(false);
+
+  const handelMouseEnter = () => setOpen((e) => !e);
+
   return (
     <div className="app">
-      {iconsList.map((e, i) => {
-        const TempCompnent = IconModule[e];
-        return <TempCompnent key={i} />;
-      })}
+      <form action="">
+        <input
+          required
+          type="text"
+          pattern="^([a-zA-Z0-9_ ]{2,})*$"
+          placeholder="John Doe"
+        />
+        <input
+          required
+          type="email"
+          pattern="^\w+@\w+\.(\w+){2,}$"
+          placeholder="John.doe@email.com"
+        />
+        <input
+          onMouseEnter={handelMouseEnter}
+          type="button"
+          value="Submit"
+          data-open={open}
+        />
+      </form>
     </div>
   );
 };
